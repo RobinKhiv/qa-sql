@@ -2,13 +2,15 @@
 
 CREATE TABLE customer (
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    'name' VARCHAR(255) NOT NULL,
+    surname VARCHAR(255),
+    age INT,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE product (
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    'name' VARCHAR(255) NOT NULL,
     quantity INT DEFAULT 0,
     PRIMARY KEY (id)
 );
@@ -19,16 +21,17 @@ CREATE TABLE orders (
     -- fk_product_id INT NOT NULL,
     PRIMARY KEY (id),
     KEY (fk_customer_id),
-    KEY (fk_product_id),
+    -- KEY (fk_product_id),
     FOREIGN KEY (fk_customer_id) 
         REFERENCES customer(id)
     -- FOREIGN KEY (fk_product_id) 
     --     REFERENCES product(id)
 );
 
-
+-- associative table from order
 CREATE TABLE product-order (
     fk_order_id INT NOT NULL,
+    fk_product_id INT NOT NULL,
     PRIMARY KEY (fk_order_id, fk_product_id),
     FOREIGN KEY (fk_order_id)
         REFERENCES orders(id),
