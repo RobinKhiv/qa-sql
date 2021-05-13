@@ -1,4 +1,10 @@
 CREATE DATABASE school;
+use school;
+
+DROP TABLE IF EXISTS enrollment;
+DROP TABLE IF EXISTS class;
+DROP TABLE IF EXISTS student;
+
 CREATE TABLE student (
     student_id INTEGER NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(255) DEFAULT 'John',
@@ -8,10 +14,11 @@ CREATE TABLE student (
 );
 
 CREATE TABLE class (
-    class_id INT NOT NULL AUTO_INCREMENT,
-    'subject' VARCHAR(255) NOT NULL,
-    'description' VARCHAR(255) DEFAULT 'none avaliable',
-    'level' INTEGER DEFAULT 0
+    class_id INTEGER NOT NULL AUTO_INCREMENT,
+    subject VARCHAR(255) NOT NULL,
+    description VARCHAR(255) DEFAULT 'none',
+    level INTEGER DEFAULT 0,
+    PRIMARY KEY (class_id)
 );
 
 CREATE TABLE enrollment (
