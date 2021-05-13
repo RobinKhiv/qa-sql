@@ -1,1 +1,1 @@
-# qa-sql
+# qa sql training
